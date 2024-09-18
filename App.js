@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Image, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, Button, Pressable, TouchableHighlight } from 'react-native';
 import Logo from './assets/Logo.png';
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
     }
 
     const proporcao = precoAlcool / precoGasolina;
-
+    alert(alcool)
     if (proporcao < 0.7) {
       setMensagem('Melhor alcool');
     } else {
@@ -33,8 +33,8 @@ export default function App() {
 
       <Image
         style={{
-          width: 200,
-          height: 200,
+          width: 250,
+          height: 250,
 
         }}
         source={Logo}
@@ -42,23 +42,23 @@ export default function App() {
       />
       <Text
         style={{
-          paddingTop: 10,
-          fontWeight: 800,
+          paddingTop: 15,
+          fontWeight: 500,
           color: '#fff',
-
+          fontSize: 16,
         }}
 
       > Qual a melhor opção?</Text>
 
-      <View style={{ padding: 15, gap: 20 }}>
+      <View style={{ padding: 20, gap: 20 }}>
 
         <TextInput
           style={{
             height: 40,
             borderColor: 'gray',
             borderWidth: 1,
-            paddingHorizontal: 60,
-            borderRadius: 15,
+            paddingHorizontal: 65,
+            borderRadius: 20,
             color: '#fff',
             textAlign: 'center',
           }}
@@ -76,11 +76,11 @@ export default function App() {
             height: 40,
             borderColor: 'gray',
             borderWidth: 1,
-            paddingHorizontal: 20,
-            borderRadius: 15,
+            paddingHorizontal: 65,
+            borderRadius: 20,
             textAlign: 'center',
             color: '#fff',
-           
+
           }}
 
           placeholder="Gasolina"
@@ -93,19 +93,26 @@ export default function App() {
 
       <View>
 
-        <Button 
-          
-          title='Calcular'
+        <TouchableHighlight
+          style={{
+            backgroundColor: '#88c5cc',
+            borderRadius: 15,
+            paddingHorizontal: 20,
+            width: 100,
+            padding: 5,
+          }}
           onPress={calcularValor}
-          color='#2d8686'
+        >
+          <Text style={{ textAlign: 'center', color: '#000', fontSize: 15,}}>Calcular</Text>
 
-        />
+        </TouchableHighlight>
+
       </View>
 
       <View>
 
         {mensagem ? ( /* operador condicional*/
-          <Text style={{ paddingTop: 10, color: '#fff',}}>
+          <Text style={{ paddingTop: 15, color: '#fff', }}>
             {mensagem}
 
           </Text>
@@ -114,7 +121,6 @@ export default function App() {
       </View>
 
       <StatusBar style="auto" />
-
 
     </View>
 
